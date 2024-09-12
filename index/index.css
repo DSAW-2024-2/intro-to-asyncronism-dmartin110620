@@ -1,0 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+:root {
+    --primaryColor: #DC0C2D;
+    --secondaryColor: #1A6A9F;
+    --black:black;
+
+    --normal:#A0A19F;
+    --fire:#E9AA7C;
+    --fighting:#F78003;
+    --water:#2C80EF;
+    --grass:#51807A;
+    --electric:#F7DC6F;
+    --psychic:#F7D2C4;
+    --poison:#CB6CE6;
+    --ground:#915121;
+    --flying:#82BAEF;
+    --ice:#66D9EF;
+    --bug:#91A119;
+    --rock:#B8A038;
+    --ghost:#704270;
+    --dragon:#6F35FC;
+    --dark:#624D4E;
+    --steel:#B7B7CE;
+    --fairy:#FFC0CB;
+
+    --normal-type: rgba(160, 161, 159, 0.7);
+    --fire-type: rgba(233, 170, 124, 0.7);
+    --fighting-type: rgba(247, 128, 3, 0.7);
+    --water-type: rgba(44, 128, 239, 0.7);
+    --grass-type: rgba(81, 128, 122, 0.7);
+    --electric-type: rgba(247, 220, 111, 0.7);
+    --psychic-type: rgba(247, 210, 196, 0.7);
+    --poison-type: rgba(145, 66, 204, 0.7);
+    --ground-type: rgba(145, 81, 33, 0.7);
+    --flying-type: rgba(130, 186, 239, 0.7);
+    --ice-type: rgba(102, 217, 239, 0.7);
+    --bug-type: rgba(145, 161, 25, 0.7);
+    --rock-type: rgba(184, 160, 56, 0.7);
+    --ghost-type: rgba(112, 66, 112, 0.7);
+    --dragon-type: rgba(111, 53, 252, 0.7);
+    --dark-type: rgba(98, 77, 78, 0.7);
+    --steel-type: rgba(183, 183, 206, 0.7);
+    --fairy-type: rgba(255, 192, 203, 0.7);
+}
+
+/* .images {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 450px;
+    max-width: 100%;
+} */
+
+html {
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+    text-align: justify;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* slider css starts */
+
+.logo-search {
+    width: 100vw;
+    padding-block: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#search {
+    padding: 5px;
+    border: gray solid 1px;
+    border-radius: 10px;
+    width: auto;
+}
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    height: 600px;
+    max-height: 800px;
+    max-width: 100%;
+    position: relative;
+    margin-inline: auto;
+    border-radius: 50px;
+    /* border: #DC0C2D solid 1px; */
+    overflow: hidden;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: 22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.caption-text a {
+    color: #f2f2f2;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 40px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 44%;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.caption-text a:hover {
+    color: gray;
+    /* filter: brightness(50%); */
+}
+
+#more-info {
+    text-transform: capitalize;
+    font-size: 15px;
+    bottom: 5%;
+}
+
+#more-info:hover {
+    text-decoration: underline;
+    font-size: 17px;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: dodgerblue;
+    filter: brightness(50%);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: var(--primaryColor);
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* slider css ends */
+
+
+/* page css starts */
+
+header,
+main {
+    /* padding-inline: 2rem; */
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* .main-content {
+    display: flex;
+    justify-content: center;
+} */
+
+.nav{
+    display: flex;
+    align-items:center;
+    padding-block: 2rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-header {
+    cursor: pointer;
+    padding: .7rem;
+    border-radius: 100vmax;
+    text-transform: capitalize;
+    font-weight: 300;
+    width: 100px;
+    max-width: 100px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    transition: .4;
+}
+
+.btn-header:hover {
+    transform: scale(1.1);
+}
+
+.poke-img {
+    display: flex;
+    justify-content: center;
+}
+
+.poke-img img {
+    width: 100%;
+    max-width: 8rem;
+}
+
+.top-cards {
+    filter: brightness(50%);
+}
+
+.pokemon-list, .top-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .pokemon-list, .top-cards {
+        justify-content: center;
+        margin: 0 auto;
+        width: max-content;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .pokemon-list, .top-cards {
+    grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 880px) {
+    .pokemon-list, .top-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.pokemon {
+    border-radius: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-block: 1rem;
+    text-transform: capitalize;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    max-width: 20rem;
+}
+
+.pokemon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.poke-id-back {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    font-size: 7rem;
+    font-weight: bold;
+    z-index: -1;
+    color: lightgray;
+    filter: blur(2px);
+}
+
+.poke-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+}
+
+.id-name {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.poke-id {
+    font-size: .8rem;
+    padding: .2rem .5rem;
+    margin-block: 1rem;
+    border-radius: 100vmax;
+    background-color: gainsboro;
+}
+
+.poke-name {
+    font-size: 1.5rem;
+}
+
+.poke-type {
+    display: flex;
+    gap: 1.1rem;
+    font-size: .8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.type {
+    width: 90px;
+    max-width: 90px;
+    padding: .8rem 1.2rem;
+    border-radius: 100vmax;
+    background-color: gainsboro;
+}
+
+.poke-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.info-stat {
+    width: 150px;
+    max-width: 150px;
+    padding: .8rem 1.2rem;
+    border-radius: 100vmax;
+    background-color: gainsboro;
+}
+
+
+
+
+/* Nav-list customization starts */
+
+button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#see-all {
+    background-color: var(--secondaryColor);
+    color: var(--black);
+}
+
+.normal {
+    background-color: var(--normal);
+    color: var(--black);
+}
+
+.fire {
+    background-color: var(--fire);
+    color: var(--black);
+}
+
+.fighting {
+    background-color: var(--fighting);
+    color: var(--black);
+}
+
+.water {
+    background-color: var(--water);
+    color: var(--black);
+}
+
+.grass {
+    background-color: var(--grass);
+    color: var(--black);
+}
+
+.electric {
+    background-color: var(--electric);
+    color: var(--black);
+}
+
+.psychic {
+    background-color: var(--psychic);
+    color: var(--black);
+}
+
+.poison {
+    background-color: var(--poison);
+    color: var(--black);
+}
+
+.ground {
+    background-color: var(--ground);
+    color: var(--black);
+}
+
+.flying {
+    background-color: var(--flying);
+    color: var(--black);
+}
+
+.ice {
+    background-color: var(--ice);
+    color: var(--black);
+}
+
+.bug {
+    background-color: var(--bug);
+    color: var(--black);
+}
+
+.rock {
+    background-color: var(--rock);
+    color: var(--black);
+}
+
+.ghost {
+    background-color: var(--ghost);
+    color: var(--black);
+}
+
+.dragon {
+    background-color: var(--dragon);
+    color: var(--black);
+}
+
+.dark {
+    background-color: var(--dark);
+    color: var(--black);
+}
+
+.steel {
+    background-color: var(--steel);
+    color: var(--black);
+}
+
+.fairy {
+    background-color: var(--fairy);
+    color: var(--black);
+}
+
+/* Nav-list customization ends */
+
+/* Scrollbar settings starts*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #C62368;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primaryColor);
+}
+
+/* Scrollbar settings ends */
